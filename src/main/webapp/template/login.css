@@ -1,0 +1,97 @@
+:root{
+    --pri-color: #24190b;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    height: 100%;
+}
+
+body{
+    font-family: 'Be Vietnam Pro';
+    font-weight: 300;
+    height: 100%;
+}
+
+.header{
+    background-color: var(--pri-color);
+    height: 65px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    /* position: fixed; */
+    width: 100%;
+    z-index: 1;
+}
+
+.header a{
+    font-size: 24px;
+    color: #fff;
+    margin: 0 30px;
+    text-decoration: none;
+}
+
+.main{
+    background-image: url(../image/hoian1.jpg);
+    height: calc(100% - 65px);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main form{
+    height: 540px;
+    width: 620px;
+    border-radius: 20px;
+    background-color: #fff;
+    display: flex;
+    flex-flow: column;
+    padding: 20px 50px;
+    align-items: center;
+}
+
+.main form .title{
+    font-size: 40px;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.main form span{
+    height: 1px;
+    width: 100%;
+    background-color: #24190b;
+    display: block;
+    margin: 10px auto;
+    margin-bottom: 30px;
+}
+
+.main form input{
+    width: 100%;
+    margin: 20px;
+    padding: 20px 0 18px 20px;
+    background-color: #d9d9d9;
+    border-radius: 8px;
+    border: none;
+    font-size: 28px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.main form input::placeholder{
+    font-size: 28px;
+    font-weight: bold;
+    color: #888888;
+}
+
+.main form input.submit{
+    width: 189px;
+    height: 77px;
+}
