@@ -11,6 +11,11 @@ public class PersonBean {
         this.password = password;
     }
 
+    public PersonBean(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
     public PersonBean() {
 
     }
@@ -38,4 +43,5 @@ public class PersonBean {
     public void setPassword(String password) {
         this.password = password;
     }
+
 }

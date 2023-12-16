@@ -4,10 +4,16 @@ public class TourBean {
     private String tourID;
     private String tourName;
     private String tourDetail;
-    private String tourPrice;
+    private int tourPrice;
 
-    public TourBean(String tourID, String tourName, String tourDetail, String tourPrice) {
+    public TourBean(String tourID, String tourName, String tourDetail, int tourPrice) {
         this.tourID = tourID;
+        this.tourName = tourName;
+        this.tourDetail = tourDetail;
+        this.tourPrice = tourPrice;
+    }
+
+    public TourBean(String tourName, String tourDetail, int tourPrice) {
         this.tourName = tourName;
         this.tourDetail = tourDetail;
         this.tourPrice = tourPrice;
@@ -37,11 +43,11 @@ public class TourBean {
         this.tourDetail = tourDetail;
     }
 
-    public String getTourPrice() {
+    public int getTourPrice() {
         return tourPrice;
     }
 
-    public void setTourPrice(String tourPrice) {
+    public void setTourPrice(int tourPrice) {
         this.tourPrice = tourPrice;
     }
 }

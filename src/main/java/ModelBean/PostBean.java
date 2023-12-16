@@ -11,6 +11,11 @@ public class PostBean {
         this.postDetail = postDetail;
     }
 
+    public PostBean(String postName, String postDetail) {
+        this.postName = postName;
+        this.postDetail = postDetail;
+    }
+
     public String getPostID() {
         return postID;
     }
