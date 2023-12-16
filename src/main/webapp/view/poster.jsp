@@ -17,8 +17,8 @@
 <body>
 <div class="header">
     <div>
-        <a href="./home.html">Trang chủ</a>
-        <a href="./poster.html" class="bold-underline">Bài viết</a>
+        <a href="./home.jsp">Trang chủ</a>
+        <a href="./poster.jsp" class="bold-underline">Bài viết</a>
         <a>Thông tin vé</a>
     </div>
     <a class="login">Đăng nhập</a>
