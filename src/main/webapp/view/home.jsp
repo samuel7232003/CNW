@@ -20,7 +20,7 @@
     <div>
         <a href="./home.jsp" class="bold-underline">Trang chủ</a>
         <a href="${pageContext.request.contextPath}/posterController">Bài viết</a>
-        <a href="./titketInfor.jsp">Thông tin vé</a>
+        <a href="${pageContext.request.contextPath}/tourController">Thông tin vé</a>
     </div>
     <%
         UserBean user = (UserBean) request.getAttribute("user");

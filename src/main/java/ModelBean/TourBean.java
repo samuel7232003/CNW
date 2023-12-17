@@ -1,11 +1,12 @@
 package ModelBean;
 
+import ModelBO.UserBO;
+
 public class TourBean {
     private String tourID;
     private String tourName;
     private String tourDetail;
     private int tourPrice;
-
     public TourBean(String tourID, String tourName, String tourDetail, int tourPrice) {
         this.tourID = tourID;
         this.tourName = tourName;

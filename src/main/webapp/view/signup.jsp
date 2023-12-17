@@ -19,7 +19,7 @@
   <div>
     <a href="./home.jsp">Trang chủ</a>
     <a href="${pageContext.request.contextPath}/posterController" class="bold-underline">Bài viết</a>
-    <a href="./titketInfor.jsp">Thông tin vé</a>
+    <a href="${pageContext.request.contextPath}/tourController">Thông tin vé</a>
   </div>
   <a href="./login.jsp" class="login">Đăng nhập</a>
 </div>

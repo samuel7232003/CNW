@@ -20,15 +20,14 @@
 <div class="header">
     <div>
         <a href="./view/home.jsp">Trang chủ</a>
-        <a href="./poster.jsp" class="bold-underline">Bài viết</a>
-        <a href="./titketInfor.jsp">Thông tin vé</a>
+        <a href="${pageContext.request.contextPath}/posterController" class="bold-underline">Bài viết</a>
+        <a href="${pageContext.request.contextPath}/tourController">Thông tin vé</a>
     </div>
     <%
         UserBean user = (UserBean) request.getAttribute("user");
         if(user!=null){
     %>
     <a class="login"><%= user.getName() %></a>
-    <input hidden="hidden" name="idUser" value="<%= user.getUserID() %>">
     <%
     } else {
     %>
