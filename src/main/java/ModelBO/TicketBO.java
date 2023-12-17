@@ -5,6 +5,7 @@ import ModelBean.TourBean;
 import ModelDAO.TicketDAO;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class TicketBO {
     TicketDAO ticketDAO;
@@ -13,7 +14,9 @@ public class TicketBO {
     }
     public boolean insertTicket(String userID, String tourID, int numTicket, String dateTimeStrGo, String comment){
         LocalDateTime dateTimeOrder = LocalDateTime.now();
+        //
         //truyền cho cái dateTimeStrGo theo cú pháp là "2023-12-25 11:20:20" thì mới chạy nghe
+        //
         LocalDateTime dateTimeGo = timeToLocalDateTime(dateTimeStrGo);
         TicketBean newTicket = new TicketBean(userID, tourID, numTicket, dateTimeOrder, dateTimeGo,comment);
         TourBO tourBO = new TourBO();
@@ -21,6 +24,14 @@ public class TicketBO {
         newTicket.setSumPrice(numTicket * tour.getTourPrice());
         if(ticketDAO.insertTicket(newTicket) == 1) return true;
         else return false;
+    }
+    public ArrayList<TicketBean> getAllTicketByCondition(String category, String condition){
+        if(category == "user") category = "userID";
+        else if (category == "tour") category = "tourID";
+        return ticketDAO.getAllTicketByCondition(category, condition);
+    }
+    public ArrayList<TicketBean> getAllTicket(){
+        return ticketDAO.getAllTicket();
     }
     public static LocalDateTime timeToLocalDateTime(String timeSend){
         LocalDateTime timenow;
@@ -34,4 +45,5 @@ public class TicketBO {
         timenow = LocalDateTime.of(year,month,day,hour,minute,second);
         return timenow;
     }
+
 }

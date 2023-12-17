@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class TicketDAO {
     public int insertTicket(TicketBean ticket){
@@ -46,7 +47,54 @@ public class TicketDAO {
         }
         return 0;
     }
-
+    public ArrayList<TicketBean> getAllTicket(){
+        ArrayList<TicketBean> tickets = new ArrayList<>();
+        try{
+            Connection conn = DBUtil.connection();
+            String sql = "SELECT * FROM ticket";
+            Statement statement = conn.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()){
+                String ticketID = resultSet.getString("ticketID");
+                String userID = resultSet.getString("userID");
+                String tourID = resultSet.getString("tourID");
+                int numTicket = resultSet.getInt("numTicket");
+                int priceSum = resultSet.getInt("priceSum");
+                LocalDateTime dateTimeOrder = timeToLocalDateTime(resultSet.getString("datetimeOrder"));
+                LocalDateTime dateTimeGo = timeToLocalDateTime(resultSet.getString("datetimeGo"));
+                String comment = resultSet.getString("comment");
+                TicketBean ticket = new TicketBean(ticketID, userID, tourID, numTicket, priceSum, dateTimeOrder, dateTimeGo,comment);
+                tickets.add(ticket);
+            }
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+        return tickets;
+    }
+    public ArrayList<TicketBean> getAllTicketByCondition(String category, String condition){
+        ArrayList<TicketBean> tickets = new ArrayList<>();
+        try{
+            Connection conn = DBUtil.connection();
+            String sql = "SELECT * FROM ticket WHERE " + category + "='" + condition + "';";
+            Statement statement = conn.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()){
+                String ticketID = resultSet.getString("ticketID");
+                String userID = resultSet.getString("userID");
+                String tourID = resultSet.getString("tourID");
+                int numTicket = resultSet.getInt("numTicket");
+                int priceSum = resultSet.getInt("priceSum");
+                LocalDateTime dateTimeOrder = timeToLocalDateTime(resultSet.getString("datetimeOrder"));
+                LocalDateTime dateTimeGo = timeToLocalDateTime(resultSet.getString("datetimeGo"));
+                String comment = resultSet.getString("comment");
+                TicketBean ticket = new TicketBean(ticketID, userID, tourID, numTicket, priceSum, dateTimeOrder, dateTimeGo,comment);
+                tickets.add(ticket);
+            }
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+        return tickets;
+    }
     public String timeToString(LocalDateTime timenow){
         String datetime = timenow.toString();
         String timeSet = datetime.replace('T' , ' ').substring(0,19);
