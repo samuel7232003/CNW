@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class UserDAO {
-    public boolean signIn(UserBean user){
+    public UserBean signIn(UserBean user){
         try {
             Connection conn = DBUtil.connection();
             String sql = "SELECT * FROM user WHERE username='" + user.getUsername() + "';";
@@ -17,13 +17,14 @@ public class UserDAO {
             while(resultSet.next()){
                 String password = resultSet.getString("password");
                 if(user.getPassword().equals(password)){
-                    return true;
+                    UserBean user_ = new UserBean(resultSet.getString("userID"), resultSet.getString("usName"), user.getUsername(), user.getPassword());
+                    return user_;
                 }
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return false;
+        return null;
     }
     public UserBean getUserByUsername(String username){
         UserBean user = null;

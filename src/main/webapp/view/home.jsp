@@ -1,4 +1,4 @@
-<%--
+<%@ page import="ModelBean.UserBean" %><%--
   Created by IntelliJ IDEA.
   User: Le Viet Thanh
   Date: 12/14/2023
@@ -9,6 +9,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="../template/home.css">
+    <link rel="stylesheet" href="./template/home.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;700&family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
@@ -21,20 +22,42 @@
         <a href="${pageContext.request.contextPath}/posterController">Bài viết</a>
         <a href="./titketInfor.jsp">Thông tin vé</a>
     </div>
-    <a href="./login.jsp" class="login">Đăng nhập</a>
+    <%
+        UserBean user = (UserBean) request.getAttribute("user");
+        if(user!=null){
+    %>
+    <a class="login"><%= user.getName() %></a>
+
+    <%
+        } else {
+    %>
+    <a href="${pageContext.request.contextPath}/loginController" class="login">Đăng nhập</a>
+    <%}%>
 </div>
 <div class="main">
     <div class="pano">
-        <img src="../image/hoian1.jpg">
+        <%if(user!=null){%>
+        <img src="./image/hoian1.jpg" alt="">
+        <%}else{%>
+        <img src="../image/hoian1.jpg" alt="">
+        <%}%>
     </div>
     <div class="title-main">
         <p>Chào mừng bạn đến với</p>
-        <img src="../image/icon.png">
+        <%if(user!=null){%>
+        <img src="./image/icon.png" alt="">
+        <%}else{%>
+        <img src="../image/icon.png" alt="">
+        <%}%>
         <span></span>
     </div>
     <div class="intro">
         <div class="item item1">
+            <%if(user!=null){%>
+            <img src="./image/image2.jpg" alt="">
+            <%}else{%>
             <img src="../image/image2.jpg" alt="">
+            <%}%>
             <div class="text">
                 <p class="title">Dạo quanh phố cổ... </p>
                 <p class="content">với những cảm xúc như trở về một thời hoàng kim sống động, rực rỡ đầy màu sắc. Bạn sẽ như được chạm vào một lát cắt lịch sử, hiện hữu, chân thực, và đong đầy xúc cảm...</p>
@@ -46,11 +69,19 @@
                 <p class="title">Dạo quanh phố cổ... </p>
                 <p class="content">với những cảm xúc như trở về một thời hoàng kim sống động, rực rỡ đầy màu sắc. Bạn sẽ như được chạm vào một lát cắt lịch sử, hiện hữu, chân thực, và đong đầy xúc cảm...</p>
             </div>
+            <%if(user!=null){%>
+            <img src="./image/image5.jpg" alt="">
+            <%}else{%>
             <img src="../image/image5.jpg" alt="">
+            <%}%>
         </div>
         <span></span>
         <div class="item item3">
+            <%if(user!=null){%>
+            <img src="./image/image4.jpg" alt="">
+            <%}else{%>
             <img src="../image/image4.jpg" alt="">
+            <%}%>
             <div class="text">
                 <p class="title">Dạo quanh phố cổ... </p>
                 <p class="content">với những cảm xúc như trở về một thời hoàng kim sống động, rực rỡ đầy màu sắc. Bạn sẽ như được chạm vào một lát cắt lịch sử, hiện hữu, chân thực, và đong đầy xúc cảm...</p>
