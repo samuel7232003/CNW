@@ -20,6 +20,7 @@ body{
     align-items: center;
     padding: 0 30px;
     position: fixed;
+    top: 0;
     width: 100%;
     z-index: 1;
 }
@@ -31,18 +32,14 @@ body{
     text-decoration: none;
 }
 
+
 .bold-underline{
     text-decoration: underline !important;
 }
 
 .main{
     width: 100%;
-}
-
-.main .pano img{
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
+    margin-top: 65px;
 }
 
 .main .title-main{
@@ -55,7 +52,7 @@ body{
     padding: 20px;
 }
 
-.main .title-main img{
+.main .title-main .img{
     width: 582px;
     height: 250px;
     object-fit: cover;
@@ -71,55 +68,82 @@ body{
     margin: 0 auto;
 }
 
-.main .intro{
-    margin: 80px 0;
+.main .menu{
+    width: 990px;
+    margin: 50px auto;
 }
 
-.main .intro span{
-    height: 1px;
-    width: 312px;
-    background-color: #24190b;
-    display: block;
-    margin: 100px auto;
+.main .menu a{
+    text-decoration: none;
+    font-size: 24px;
+    margin-right: 50px;
+    color: #989898;
+    font-weight: bold;
 }
 
-.main .intro .item{
+.main .menu a.selected{
+    text-decoration: underline;
+    color: black;
+}
+
+.main .list-titket{
     display: flex;
-    padding: 0 100px;
-    justify-content: space-around;
+    flex-flow: column;
     align-items: center;
 }
 
-.main .intro .item .text{
-    width: 580px;
+.main .list-titket .item{
+    width: 980px;
+    height: 290px;
+    background-color: #f5f5f5;
+    box-shadow: #8a8988 3px 3px 3px 0px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 50px;
+    display: flex;
 }
 
-.main .intro .item .title{
+.main .list-titket .item img{
+    height: 100%;
+    width: 250px;
+    background-color: #8a8988;
+}
+
+.main .list-titket .item .text{
+    margin: 30px;
+    font-size: 24px;
+}
+
+.main .list-titket .item .text .title{
     font-weight: bold;
-    font-size: 40px;
+    font-size: 28px;
     margin-bottom: 30px;
 }
 
-.main .intro .item .content{
-    font-size: 32px;
+.main .list-titket .item .text .infor{
+    height: 130px;
 }
 
-.main .intro .item1 img{
-    width: 350px !important;
-    box-shadow: #24190b 7px 7px ;
-    transform: rotate(-8deg) !important;
+.main .list-titket .item .text .price{
+    color: #d6a700;
+    font-weight: bold;
+    border: solid 4px #d6a700;
+    padding: 5px;
+    display: inline;
+    border-radius: 8px;
 }
 
-.main .intro .item2 img{
-    width: 350px !important;
-    box-shadow: #24190b 7px 7px ;
-    transform: rotate(8deg) !important;
+.main .list-titket .item .detail{
+    width: 65px;
+    background-color: var(--pri-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.main .intro .item3 img{
-    width: 500px !important;
-    box-shadow: #24190b 7px 7px ;
-    transform: rotate(-8deg) !important;
+.main .list-titket .item .detail i{
+    color: #fff;
+    font-size: 24px;
 }
 
 .footer{
