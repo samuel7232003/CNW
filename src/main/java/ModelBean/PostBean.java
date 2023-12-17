@@ -1,5 +1,7 @@
 package ModelBean;
 
+import java.util.ArrayList;
+
 public class PostBean {
     private String postID;
     private String postName;
@@ -14,6 +16,9 @@ public class PostBean {
     public PostBean(String postName, String postDetail) {
         this.postName = postName;
         this.postDetail = postDetail;
+    }
+
+    public PostBean() {
     }
 
     public String getPostID() {
@@ -38,5 +43,15 @@ public class PostBean {
 
     public void setPostDetail(String postDetail) {
         this.postDetail = postDetail;
+    }
+
+    public String getHiredContent(){
+        String rs = "";
+        String[] e = postDetail.split(" ");
+        for(int i = 0; i < 20&&i<e.length; i++){
+            rs+= e[i] + " ";
+        }
+        rs+="...";
+        return rs;
     }
 }

@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class PostDAO {
     public int insertPost(PostBean newPost){
@@ -59,4 +60,24 @@ public class PostDAO {
         return post;
     }
 
+    public ArrayList<PostBean> getAllPost() {
+        ArrayList<PostBean> postBeans = new ArrayList<>();
+        try {
+            Connection conn = DBUtil.connection();
+            String sql = "SELECT * FROM post;";
+            Statement statement = conn.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while(resultSet.next()){
+                PostBean post = null;
+                String postID = resultSet.getString("postID");
+                String postName = resultSet.getString("postName");
+                String postDetail = resultSet.getString("postDetail");
+                post = new PostBean(postID, postName, postDetail);
+                postBeans.add(post);
+            }
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+        return postBeans;
+    }
 }

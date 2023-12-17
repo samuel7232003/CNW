@@ -18,7 +18,7 @@
 <div class="header">
     <div>
         <a href="./home.jsp" class="bold-underline">Trang chủ</a>
-        <a href="./poster.jsp">Bài viết</a>
+        <a href="${pageContext.request.contextPath}/posterController">Bài viết</a>
         <a href="./titketInfor.jsp">Thông tin vé</a>
     </div>
     <a href="./login.jsp" class="login">Đăng nhập</a>

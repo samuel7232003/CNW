@@ -68,13 +68,7 @@ body{
 }
 
 .main .list-posts{
-    display: flex;
     margin: 20px;
-    justify-content: space-around;
-}
-
-.main .list-posts .colunm{
-    width: 32%;
 }
 
 .main .list-posts .item{
@@ -84,6 +78,8 @@ body{
     border-radius: 10px;
     overflow: hidden;
     margin-bottom: 40px;
+    width: 31%;
+    display: inline-table;
 }
 
 .main .list-posts .item img{
