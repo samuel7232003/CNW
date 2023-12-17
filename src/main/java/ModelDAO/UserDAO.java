@@ -44,7 +44,25 @@ public class UserDAO {
         }
         return user;
     }
-    public boolean signUp(UserBean newUser){
+    public UserBean getUserByID(String userId){
+        UserBean user = null;
+        try {
+            Connection conn = DBUtil.connection();
+            String sql = "SELECT * FROM user WHERE userID='" + userId + "';";
+            Statement statement = conn.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while(resultSet.next()){
+                String usID = resultSet.getString("userID");
+                String nameUser = resultSet.getString("usName");
+                String password = resultSet.getString("password");
+                user = new UserBean(usID, nameUser, nameUser, password);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return user;
+    }
+    public UserBean signUp(UserBean newUser){
         try {
             Connection conn = DBUtil.connection();
             String sql = "SELECT * FROM user WHERE username='" + newUser.getUsername() + "';";
@@ -53,7 +71,7 @@ public class UserDAO {
             while(resultSet.next()){
                 String username = resultSet.getString("username");
                 if(newUser.getUsername().equals(username)){
-                    return false;
+                    return null;
                 }
             }
 
@@ -75,7 +93,6 @@ public class UserDAO {
                 else ID_newUser += numUser;
                 newUser.setUserID(ID_newUser);
             }
-
             sql = "INSERT INTO user(userID, usName, username, password) VALUES ('" + newUser.getUserID() + "'," +
                     "'" + newUser.getName() + "'" +
                     ",'" + newUser.getUsername() + "'," +
@@ -85,6 +102,6 @@ public class UserDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return true;
+        return getUserByUsername(newUser.getUsername());
     }
 }

@@ -18,10 +18,10 @@
 <div class="header">
     <div>
         <a href="./home.jsp">Trang chủ</a>
-        <a href="./poster.jsp" class="bold-underline">Bài viết</a>
+        <a href="${pageContext.request.contextPath}/posterController" class="bold-underline">Bài viết</a>
         <a href="./titketInfor.jsp">Thông tin vé</a>
     </div>
-    <a href="./signup.jsp" class="login">Đăng ký</a>
+    <a href="${pageContext.request.contextPath}/signupController" class="login">Đăng ký</a>
 </div>
 <div class="main">
     <form action="${pageContext.request.contextPath}/loginController" class="login-form" method="post">

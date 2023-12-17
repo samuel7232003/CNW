@@ -1,5 +1,6 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="ModelBean.PostBean" %><%--
+<%@ page import="ModelBean.PostBean" %>
+<%@ page import="ModelBean.UserBean" %><%--
   Created by IntelliJ IDEA.
   User: Le Viet Thanh
   Date: 12/15/2023
@@ -22,7 +23,17 @@
         <a href="./poster.jsp" class="bold-underline">Bài viết</a>
         <a href="./titketInfor.jsp">Thông tin vé</a>
     </div>
-    <a href="./login.jsp" class="login">Đăng nhập</a>
+    <%
+        UserBean user = (UserBean) request.getAttribute("user");
+        if(user!=null){
+    %>
+    <a class="login"><%= user.getName() %></a>
+    <input hidden="hidden" name="idUser" value="<%= user.getUserID() %>">
+    <%
+    } else {
+    %>
+    <a href="${pageContext.request.contextPath}/loginController" class="login">Đăng nhập</a>
+    <%}%>
 </div>
 <div class="main">
     <div class="title-main">

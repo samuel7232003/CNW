@@ -27,7 +27,7 @@
         if(user!=null){
     %>
     <a class="login"><%= user.getName() %></a>
-
+    <input hidden="hidden" name="idUser" value="<%= user.getUserID() %>">
     <%
         } else {
     %>
