@@ -23,6 +23,14 @@ public class TicketBean {
         this.comment = comment;
     }
 
+    public TicketBean(String userID, String tourID, int numTicket, LocalDateTime dateTimeOrder, LocalDateTime dateTimeGo, String comment) {
+        this.userID = userID;
+        this.tourID = tourID;
+        this.numTicket = numTicket;
+        this.dateTimeOrder = dateTimeOrder;
+        this.dateTimeGo = dateTimeGo;
+        this.comment = comment;
+    }
     public String getTicketID() {
         return ticketID;
     }
